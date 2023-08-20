@@ -12,14 +12,8 @@
   </a-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import GlobalHeader from "@/components/GlobalHeader.vue";
-
-export default defineComponent({
-  name: "BasicLayout",
-  components: { GlobalHeader },
-});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -42,10 +36,8 @@ export default defineComponent({
 .footer {
   background: #2c3e50;
   padding: 16px;
-  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
   text-align: center;
 }
 </style>
