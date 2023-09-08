@@ -58,7 +58,7 @@
           <a-space direction="vertical" style="min-width: 640px">
             <a-form-item
               :field="`form.judgeCase[${index}].input`"
-              :label="`测试用例-${index}`"
+              :label="`输入用例-${index}`"
               :key="index"
             >
               <a-input
@@ -68,7 +68,7 @@
             </a-form-item>
             <a-form-item
               :field="`form.judgeCase[${index}].output`"
-              :label="`测试用例-${index}`"
+              :label="`输出用例-${index}`"
               :key="index"
             >
               <a-input

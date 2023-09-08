@@ -16,8 +16,8 @@ const checkAuthority = (
   }
   // 如果不需要管理员权限，用户登录才能访问
   if (needWhichAuthority === AUTHORITY_ENUM.USER) {
-    // 如果不为管理员，表示无权限
-    if (loginUser !== AUTHORITY_ENUM.NOT_LOGIN) {
+    // 如果未登录，表示无权限
+    if (loginUser === AUTHORITY_ENUM.NOT_LOGIN) {
       return false;
     }
   }

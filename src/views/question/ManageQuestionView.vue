@@ -38,7 +38,7 @@ const total = ref(0); // 总数据数，默认0条
  * 每页10条数据
  */
 const searchParams = ref({
-  pageSize: 10,
+  pageSize: 3,
   current: 1,
 });
 
@@ -57,6 +57,10 @@ const loadData = async () => {
   }
 };
 
+/**
+ * 改变当前页
+ * @param page {number} 当前页页数
+ */
 const onPageChange = (page: number) => {
   searchParams.value = {
     ...searchParams.value,

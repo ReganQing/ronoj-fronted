@@ -30,7 +30,7 @@ import GlobalHeader from "@/components/GlobalHeader.vue";
 
 .content {
   padding: 20px;
-  background: linear-gradient(to right, #e4e5e2, #fff);
+  background: #fff;
 }
 
 .footer {

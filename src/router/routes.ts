@@ -9,6 +9,9 @@ import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
 import AddQuestionView from "@/views/question/AddQuestionView.vue";
 import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
+import QuestionsView from "@/views/question/QuestionsView.vue";
+import QuestionSubmitView from "@/views/question/QuestionSubmitView.vue";
+import ViewQuestionView from "@/views/question/ViewQuestionView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -32,20 +35,26 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: "/",
+    name: "主页",
+    component: QuestionsView,
+  },
+  {
     path: "/add/question",
     name: "创建题目",
     component: AddQuestionView,
-    // meta: {
-    //   authority: AUTHORITY_ENUM.ADMIN,
-    // },
+    meta: {
+      authority: AUTHORITY_ENUM.ADMIN,
+    },
   },
   {
     path: "/update/question",
     name: "更新题目",
     component: AddQuestionView,
-    // meta: {
-    //   authority: AUTHORITY_ENUM.ADMIN,
-    // },
+    meta: {
+      authority: AUTHORITY_ENUM.USER,
+      hideInMenu: true,
+    },
   },
   {
     path: "/manage/question",
@@ -56,18 +65,34 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/",
+    path: "/questions",
     name: "浏览题目",
-    component: HomeView,
+    component: QuestionsView,
   },
   {
-    path: "/hide",
-    name: "隐藏页面",
-    component: HideView,
+    path: "/question_submit",
+    name: "浏览题目提交",
+    component: QuestionSubmitView,
+  },
+  {
+    path: "/view/question/:id",
+    name: "在线做题",
+    component: ViewQuestionView,
+    props: true,
     meta: {
+      authority: AUTHORITY_ENUM.USER,
       hideInMenu: true,
     },
   },
+  // /view/question/${question.id}
+  // {
+  //   path: "/hide",
+  //   name: "隐藏页面",
+  //   component: HideView,
+  //   meta: {
+  //     hideInMenu: true,
+  //   },
+  // },
   {
     path: "/noAuth",
     name: "无权限",
@@ -76,21 +101,21 @@ export const routes: Array<RouteRecordRaw> = [
       hideInMenu: true,
     },
   },
-  {
-    path: "/admin",
-    name: "管理员可见",
-    component: AdminView,
-    meta: {
-      authority: AUTHORITY_ENUM.ADMIN,
-    },
-  },
-  {
-    path: "/about",
-    name: "关于我的",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
+  // {
+  //   path: "/admin",
+  //   name: "管理员可见",
+  //   component: AdminView,
+  //   meta: {
+  //     authority: AUTHORITY_ENUM.ADMIN,
+  //   },
+  // },
+  // {
+  //   path: "/about",
+  //   name: "关于我的",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  // },
 ];
