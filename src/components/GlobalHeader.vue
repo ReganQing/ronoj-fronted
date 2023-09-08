@@ -16,7 +16,7 @@
               >
                 <div class="title-bar">
                   <img src="../assets/logo-tree.png" alt="logo" />
-                  <div class="title">Tree OJ</div>
+                  <div class="title">Ron OJ</div>
                 </div>
               </a-menu-item>
 
@@ -27,8 +27,19 @@
           </a-layout-header>
         </div>
       </a-col>
-      <a-col flex="100px" class="userCenter">
-        <div>{{ store.state.user?.loginUser?.userName ?? "未登录" }}</div>
+      <a-col flex="100px" class="userCenter" style="color: #2c3e50">
+        <a-dropdown>
+          <div style="color: brown">
+            <span v-if="!isLoggedIn" @click="navigateToLogin">未登录</span>
+            <span v-else>{{ store.state.user?.loginUser?.userName }}</span>
+          </div>
+          <template #content>
+            <a-doption v-if="isLoggedIn" @click="navigateToUserCenter"
+              >用户中心</a-doption
+            >
+            <a-doption v-if="isLoggedIn" @click="logOut">退出</a-doption>
+          </template>
+        </a-dropdown>
       </a-col>
     </a-row>
   </div>
@@ -45,6 +56,29 @@ import AUTHORITY_ENUM from "@/authority/authorityEnum";
 const router = useRouter();
 // 获取已存储的状态变量
 const store = useStore();
+
+// 获取用户登录状态
+const isLoggedIn = computed(() => {
+  return store.state.user?.loginUser?.loggedIn;
+});
+
+// 点击退出登录
+const logOut = () => {
+  // 调用vuex中的mutation来清除用户登录状态
+  store.dispatch("user/getLogOutUser");
+  // 重定向到主页
+  router.push({ name: "主页" });
+};
+
+// 使用路由导航到登录页面
+const navigateToLogin = () => {
+  router.push({ name: "用户登录" });
+};
+
+// 跳转到用户中心
+const navigateToUserCenter = () => {
+  return router.push({ name: "用户中心" });
+};
 
 // 展示在菜单的路由
 const visibleRoutes = computed(() => {

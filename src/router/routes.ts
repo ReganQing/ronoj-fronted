@@ -1,8 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
-import AdminView from "@/views/AdminView.vue";
 import NoAuthView from "@/views/NoAuthView.vue";
-import HideView from "@/views/HideView.vue";
 import AUTHORITY_ENUM from "@/authority/authorityEnum";
 import UserLoginView from "@/views/user/UserLoginView.vue";
 import UserRegisterView from "@/views/user/UserRegisterView.vue";
@@ -12,6 +9,7 @@ import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
 import QuestionsView from "@/views/question/QuestionsView.vue";
 import QuestionSubmitView from "@/views/question/QuestionSubmitView.vue";
 import ViewQuestionView from "@/views/question/ViewQuestionView.vue";
+import UserCenter from "@/views/user/UserCenter.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -28,6 +26,11 @@ export const routes: Array<RouteRecordRaw> = [
         path: "/user/register",
         name: "用户注册",
         component: UserRegisterView,
+      },
+      {
+        path: "/user/center",
+        name: "用户中心",
+        component: UserCenter,
       },
     ],
     meta: {
@@ -84,15 +87,6 @@ export const routes: Array<RouteRecordRaw> = [
       hideInMenu: true,
     },
   },
-  // /view/question/${question.id}
-  // {
-  //   path: "/hide",
-  //   name: "隐藏页面",
-  //   component: HideView,
-  //   meta: {
-  //     hideInMenu: true,
-  //   },
-  // },
   {
     path: "/noAuth",
     name: "无权限",

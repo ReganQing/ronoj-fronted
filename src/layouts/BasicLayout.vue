@@ -7,7 +7,7 @@
       <router-view />
     </a-layout-content>
     <a-layout-footer class="footer">
-      <a href="#"> by Ron </a>
+      <a href="#" style="text-decoration-line: none; color: #fff"> by Ron </a>
     </a-layout-footer>
   </a-layout>
 </template>
@@ -37,7 +37,6 @@ import GlobalHeader from "@/components/GlobalHeader.vue";
   background: #2c3e50;
   padding: 16px;
   bottom: 0;
-  left: 0;
   text-align: center;
 }
 </style>

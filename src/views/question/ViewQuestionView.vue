@@ -2,7 +2,7 @@
   <div id="viewQuestionView">
     <a-row :gutter="[24, 24]">
       <a-col :md="12" :xs="24">
-        <a-tabs>
+        <a-tabs default-active-key="question">
           <a-tab-pane key="question">
             <template #title> 问题 </template>
             <a-card v-if="question" :title="question.title">
@@ -33,12 +33,95 @@
               </template>
             </a-card>
           </a-tab-pane>
-          <a-tab-pane key="comment" disabled>
+          <a-tab-pane key="comment">
             <template #title> 评论 </template>
+            <a-card>
+              <a-comment
+                author="有两座山"
+                avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+                content="好题，做出来了"
+                datetime="1 hour"
+              >
+                <template #actions>
+                  <span class="action"> <IconMessage /> 回复 </span>
+                </template>
+                <a-comment
+                  author="兔子吃些胡萝卜"
+                  avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/9eeb1800d9b78349b24682c3518ac4a3.png~tplv-uwbnlip3yd-webp.webp"
+                  content="兄台思路能否讲下"
+                  datetime="1 hour"
+                >
+                  <template #actions>
+                    <span class="action"> <IconMessage /> 回复 </span>
+                  </template>
+                  <a-comment
+                    author="有两座山"
+                    avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/8361eeb82904210b4f55fab888fe8416.png~tplv-uwbnlip3yd-webp.webp"
+                    content="使用双指针兄弟"
+                    datetime="1 hour"
+                  >
+                    <template #actions>
+                      <span class="action"> <IconMessage /> 回复 </span>
+                    </template>
+                  </a-comment>
+                  <a-comment
+                    author="兔子吃些胡萝卜"
+                    avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+                    content="好的，我试试，感谢！"
+                    datetime="1 hour"
+                  >
+                    <template #actions>
+                      <span class="action"> <IconMessage /> 回复 </span>
+                    </template>
+                  </a-comment>
+                </a-comment>
+              </a-comment>
+            </a-card>
           </a-tab-pane>
           <a-tab-pane key="answer">
             <template #title> 题解 </template>
-            暂时无法查看题解
+            <a-card>
+              <a-comment
+                author="有两座山"
+                avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+                content="好题，做出来了"
+                datetime="1 hour"
+              >
+                <template #actions>
+                  <span class="action"> <IconMessage /> 回复 </span>
+                </template>
+                <a-comment
+                  author="兔子吃些胡萝卜"
+                  avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/9eeb1800d9b78349b24682c3518ac4a3.png~tplv-uwbnlip3yd-webp.webp"
+                  content="兄台思路能否讲下"
+                  datetime="1 hour"
+                >
+                  <template #actions>
+                    <span class="action"> <IconMessage /> 回复 </span>
+                  </template>
+                  <a-comment
+                    author="有两座山"
+                    avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/8361eeb82904210b4f55fab888fe8416.png~tplv-uwbnlip3yd-webp.webp"
+                    content="使用双指针兄弟"
+                    datetime="1 hour"
+                  >
+                    <template #actions>
+                      <span class="action"> <IconMessage /> 回复 </span>
+                    </template>
+                  </a-comment>
+                  <a-comment
+                    author="兔子吃些胡萝卜"
+                    avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+                    content="好的，我试试，感谢！"
+                    datetime="1 hour"
+                  >
+                    <template #actions>
+                      <span class="action"> <IconMessage /> 回复 </span>
+                    </template>
+                  </a-comment>
+                </a-comment>
+              </a-comment>
+            </a-card>
           </a-tab-pane>
         </a-tabs>
       </a-col>
@@ -79,6 +162,7 @@
 <script setup lang="ts">
 import { onMounted, ref, withDefaults, defineProps } from "vue";
 import message from "@arco-design/web-vue/es/message";
+import { IconHeart, IconMessage, IconStar } from "@arco-design/web-vue/es/icon";
 import {
   QuestionControllerService,
   QuestionSubmitAddRequest,

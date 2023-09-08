@@ -1,6 +1,6 @@
 <template>
+  <h2>用户注册</h2>
   <div id="userRegister">
-    <h2 style="margin-bottom: 36px">用户注册</h2>
     <a-form
       label-align="left"
       auto-label-width
@@ -32,6 +32,9 @@
         <span id="cue"></span>
       </a-form-item>
       <a-form-item>
+        <div>
+          <router-link :to="{ name: '用户登录' }">已注册？返回登录</router-link>
+        </div>
         <a-button html-type="submit" type="primary" class="button">
           提交
         </a-button>
@@ -95,7 +98,6 @@ const handleSubmit = async () => {
 
 <style scoped>
 #userRegister {
-  position: relative;
 }
 
 #userRegister .loginForm {

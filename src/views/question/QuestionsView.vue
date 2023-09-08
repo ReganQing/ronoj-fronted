@@ -67,7 +67,7 @@ import moment from "moment";
 const tableRef = ref();
 
 const dataList = ref([]);
-const total = ref(0); // 总数据数，默认0条
+const total = ref("0"); // 总数据数，默认0条
 
 // 需要展示到页面的数据列表
 const columns = [
@@ -102,7 +102,7 @@ const columns = [
 const searchParams = ref<QuestionQueryRequest>({
   title: "",
   tags: [],
-  pageSize: 3,
+  pageSize: 5,
   current: 1,
 });
 
@@ -133,7 +133,7 @@ const onPageChange = (page: number) => {
 };
 
 /**
- * 监听 searchParams 变量，改变是触发页面的重新加载
+ * 监听 searchParams 变量，改变时触发页面的重新加载
  */
 watchEffect(() => {
   loadData();

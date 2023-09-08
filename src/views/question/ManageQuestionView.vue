@@ -1,5 +1,5 @@
 <template>
-  <div id="manageQuestionView">
+  <div id="manageQuestionView" style="color: #2c3e50">
     <h2>管理题目</h2>
     <a-table
       :ref="tableRef"

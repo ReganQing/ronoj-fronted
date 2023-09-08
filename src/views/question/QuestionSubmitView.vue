@@ -117,7 +117,7 @@ const columns = [
 const searchParams = ref<QuestionSubmitQueryRequest>({
   questionId: undefined,
   language: undefined,
-  pageSize: 3,
+  pageSize: 10,
   current: 1,
 });
 

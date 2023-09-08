@@ -1,20 +1,30 @@
 <template>
-  <div id="addQuestionView">
-    <h2>创建题目</h2>
+  <div id="addQuestionView" style="color: #2c3e50">
+    <h2 style="margin-left: 10vw">创建题目</h2>
     <a-form :model="form">
-      <a-form-item field="title" label="题目标题">
+      <a-form-item field="title" label="题目标题" required>
         <a-input v-model="form.title" placeholder="请输入题目标题..." />
       </a-form-item>
-      <a-form-item field="tags" label="题目标签">
+      <a-form-item field="tags" label="题目标签" required>
         <a-input-tag v-model="form.tags" placeholder="请选择标签" allow-clear />
       </a-form-item>
-      <a-form-item field="answer" tooltip="请在此输入答案" label="答案">
+      <a-form-item
+        field="answer"
+        tooltip="请在此输入答案"
+        label="答案"
+        required
+      >
         <MdEditor :value="form.answer" :handle-change="onAnswerChange" />
       </a-form-item>
-      <a-form-item field="content" label="题目内容">
+      <a-form-item field="content" label="题目内容" required>
         <MdEditor :value="form.content" :handle-change="onContentChange" />
       </a-form-item>
-      <a-form-item label="判题设置" :content-flex="false" :merge-props="false">
+      <a-form-item
+        label="判题设置"
+        :content-flex="false"
+        :merge-props="false"
+        required
+      >
         <a-space direction="vertical" style="min-width: 320px">
           <a-form-item field="judgeConfig.timeLimit" label="时间限制">
             <a-input-number
@@ -49,11 +59,14 @@
         label="测试用例配置"
         :content-flex="false"
         :merge-props="false"
+        required
       >
         <a-form-item
           v-for="(judgeCaseItem, index) of form.judgeCase"
           :key="index"
           no-style
+          label-align:
+          left
         >
           <a-space direction="vertical" style="min-width: 640px">
             <a-form-item

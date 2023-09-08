@@ -1,6 +1,6 @@
 <template>
   <div id="userLogin">
-    <h2 style="margin-bottom: 36px">用户登录</h2>
+    <h2>用户登录</h2>
     <a-form
       label-align="left"
       auto-label-width
@@ -19,8 +19,10 @@
         />
       </a-form-item>
       <a-form-item>
-        <div id="clickToRegister">
-          <a>还未注册账号？点击注册</a>
+        <div>
+          <router-link :to="{ name: '用户注册' }"
+            >还未注册账号？点击去注册</router-link
+          >
         </div>
         <a-button html-type="submit" type="primary" class="button">
           提交
@@ -63,13 +65,6 @@ const handleSubmit = async () => {
     message.error("登录失败," + res.message);
   }
 };
-
-document?.getElementById("clickToRegister")?.addEventListener("click", () => {
-  router.push({
-    path: "/user/register",
-    replace: true,
-  });
-});
 </script>
 
 <style scoped>
