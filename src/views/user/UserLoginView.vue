@@ -19,13 +19,21 @@
         />
       </a-form-item>
       <a-form-item>
-        <div>
-          <router-link :to="{ name: '用户注册' }"
-            >还未注册账号？点击去注册</router-link
-          >
-        </div>
-        <a-button html-type="submit" type="primary" class="button">
-          提交
+        <a-button
+          type="primary"
+          shape="round"
+          href="/user/register"
+          :style="{ textDecorationLine: 'none', height: '40px' }"
+        >
+          账号注册
+        </a-button>
+        <a-button
+          html-type="submit"
+          type="primary"
+          class="button"
+          shape="round"
+        >
+          登录
         </a-button>
       </a-form-item>
     </a-form>

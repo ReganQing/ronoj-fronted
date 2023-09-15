@@ -9,13 +9,18 @@
       class="loginForm"
     >
       <a-form-item field="userAccount" label="账号">
-        <a-input v-model="form.userAccount" placeholder="请输入账号" />
+        <a-input
+          v-model="form.userAccount"
+          placeholder="请输入账号"
+          allow-clear
+        />
       </a-form-item>
       <a-form-item field="userPassword" tooltip="密码不少于8位" label="密码">
         <a-input-password
           v-model="form.userPassword"
           placeholder="请输入密码"
           id="firstInputPassword"
+          :style="{ autocomplete: 'new-password' }"
           allow-clear
         />
       </a-form-item>
@@ -32,11 +37,22 @@
         <span id="cue"></span>
       </a-form-item>
       <a-form-item>
-        <div>
-          <router-link :to="{ name: '用户登录' }">已注册？返回登录</router-link>
-        </div>
-        <a-button html-type="submit" type="primary" class="button">
-          提交
+        <a-button
+          type="primary"
+          shape="round"
+          href="/user/login"
+          :style="{ textDecorationLine: 'none', height: '40px' }"
+        >
+          用户登录
+        </a-button>
+        <a-button
+          html-type="submit"
+          type="primary"
+          class="button"
+          shape="round"
+          size="medium"
+        >
+          注册
         </a-button>
       </a-form-item>
     </a-form>
@@ -106,6 +122,7 @@ const handleSubmit = async () => {
   justify-content: center;
   margin: 50px auto;
   font-weight: bold;
+  color: black;
 }
 
 #userRegister .loginForm .button {

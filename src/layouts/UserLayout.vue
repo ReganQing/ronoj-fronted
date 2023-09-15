@@ -15,7 +15,7 @@
       </a-layout-content>
       <a-layout-footer class="footer">
         <a href="#" style="text-decoration-line: none; color: #fff"
-          >Copyright 2023 by Ron
+          >Copyright © 2023 by Ron
         </a>
       </a-layout-footer>
     </a-layout>
@@ -51,7 +51,7 @@ export default defineComponent({
 
 #userLayout .content {
   padding: 20px;
-  background: url("@/assets/斩赤红之瞳.png") no-repeat center/100%;
+  background: url("@/assets/ronoj背景.png") no-repeat center/100%;
 }
 #userLayout .footer {
   background: #2c3e50;

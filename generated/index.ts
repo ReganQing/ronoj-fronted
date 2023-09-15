@@ -28,6 +28,7 @@ export type { JudgeCase } from './models/JudgeCase';
 export type { JudgeConfig } from './models/JudgeConfig';
 export type { JudgeInfo } from './models/JudgeInfo';
 export type { LoginUserVO } from './models/LoginUserVO';
+export { ModelAndView } from './models/ModelAndView';
 export type { OrderItem } from './models/OrderItem';
 export type { Page_PostVO_ } from './models/Page_PostVO_';
 export type { Page_Question_ } from './models/Page_Question_';
@@ -60,7 +61,9 @@ export type { UserRegisterRequest } from './models/UserRegisterRequest';
 export type { UserUpdateMyRequest } from './models/UserUpdateMyRequest';
 export type { UserUpdateRequest } from './models/UserUpdateRequest';
 export type { UserVO } from './models/UserVO';
+export type { View } from './models/View';
 
+export { BasicErrorControllerService } from './services/BasicErrorControllerService';
 export { FileControllerService } from './services/FileControllerService';
 export { PostControllerService } from './services/PostControllerService';
 export { PostFavourControllerService } from './services/PostFavourControllerService';

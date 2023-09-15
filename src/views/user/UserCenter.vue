@@ -1,46 +1,71 @@
 <template>
-  <h2>用户信息</h2>
-  <a-space id="userCenter" direction="vertical" fill>
-    <a-form :model="userData">
-      <a-row :gutter="24">
-        <a-col :span="12">
-          <a-form-item field="id" label="用户ID" label-col-flex="100px">
-            <a-input v-model="userData.id" placeholder="please enter..." />
-          </a-form-item>
-        </a-col>
-        <a-col :span="12">
-          <a-form-item field="userName" label="用户昵称" label-col-flex="80px">
-            <a-input
-              v-model="userData.userName"
-              placeholder="please enter..."
-            />
-          </a-form-item>
-        </a-col>
-      </a-row>
-      <a-row :gutter="24">
-        <a-col :span="24">
-          <a-form-item
-            field="userProfile"
-            label="用户描述"
-            label-col-flex="100px"
-          >
-            <a-input
-              v-model="userData.userProfile"
-              placeholder="请用一句话介绍自己"
-              style="height: 10vh"
-            />
-          </a-form-item>
-        </a-col>
-      </a-row>
-      <a-row :gutter="24">
-        <a-col :span="12">
-          <a-form-item field="userRole" label="用户身份" label-col-flex="100px">
-            <a-input v-model="userData.userRole" disabled />
-          </a-form-item>
-        </a-col>
-      </a-row>
-    </a-form>
-  </a-space>
+  <a-card
+    :style="{ width: '720px', margin: '0 auto' }"
+    :header-style="{ background: '#92b77e' }"
+    title="用户信息"
+  >
+    <a-space id="userCenter" direction="vertical" fill>
+      <a-form :model="userData">
+        <a-row :gutter="24">
+          <a-col :span="12">
+            <a-form-item
+              field="id"
+              label="用户ID"
+              label-col-flex="100px"
+              disabled
+            >
+              <a-input v-model="userData.id" placeholder="please enter..." />
+            </a-form-item>
+          </a-col>
+          <a-col :span="12">
+            <a-form-item
+              field="userName"
+              label="用户昵称"
+              label-col-flex="80px"
+            >
+              <a-input
+                v-model="userData.userName"
+                placeholder="please enter..."
+              />
+            </a-form-item>
+          </a-col>
+        </a-row>
+        <a-row :gutter="24">
+          <a-col :span="24">
+            <a-form-item
+              field="userProfile"
+              label="用户描述"
+              label-col-flex="100px"
+            >
+              <a-input
+                v-model="userData.userProfile"
+                placeholder="请用一句话介绍自己"
+                style="height: 10vh; text-align: justify"
+              />
+            </a-form-item>
+          </a-col>
+        </a-row>
+        <a-row :gutter="24">
+          <a-col :span="12">
+            <a-form-item
+              field="userRole"
+              label="用户身份"
+              label-col-flex="100px"
+            >
+              <a-input v-model="userData.userRole" disabled />
+            </a-form-item>
+          </a-col>
+        </a-row>
+      </a-form>
+    </a-space>
+    <a-button type="primary" shape="round">
+      <router-link
+        :to="{ name: '主页' }"
+        :style="{ textDecorationLine: 'none' }"
+        >返回首页</router-link
+      >
+    </a-button>
+  </a-card>
 </template>
 
 <script setup lang="ts">

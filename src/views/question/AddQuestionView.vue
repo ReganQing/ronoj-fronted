@@ -3,10 +3,18 @@
     <h2 style="margin-left: 10vw">创建题目</h2>
     <a-form :model="form">
       <a-form-item field="title" label="题目标题" required>
-        <a-input v-model="form.title" placeholder="请输入题目标题..." />
+        <a-col :span="12">
+          <a-input v-model="form.title" placeholder="请输入题目标题..." />
+        </a-col>
       </a-form-item>
       <a-form-item field="tags" label="题目标签" required>
-        <a-input-tag v-model="form.tags" placeholder="请选择标签" allow-clear />
+        <a-col :span="12">
+          <a-input-tag
+            v-model="form.tags"
+            placeholder="请选择标签"
+            allow-clear
+          />
+        </a-col>
       </a-form-item>
       <a-form-item
         field="answer"
@@ -68,27 +76,31 @@
           label-align:
           left
         >
-          <a-space direction="vertical" style="min-width: 640px">
-            <a-form-item
-              :field="`form.judgeCase[${index}].input`"
-              :label="`输入用例-${index}`"
-              :key="index"
-            >
-              <a-input
-                v-model="judgeCaseItem.input"
-                placeholder="请输入测试输入用例"
-              />
-            </a-form-item>
-            <a-form-item
-              :field="`form.judgeCase[${index}].output`"
-              :label="`输出用例-${index}`"
-              :key="index"
-            >
-              <a-input
-                v-model="judgeCaseItem.output"
-                placeholder="请输入测试输出用例"
-              />
-            </a-form-item>
+          <a-row :gutter="8">
+            <a-col :span="8">
+              <a-form-item
+                :field="`form.judgeCase[${index}].input`"
+                :label="`输入用例-${index}`"
+                :key="index"
+              >
+                <a-input
+                  v-model="judgeCaseItem.input"
+                  placeholder="请输入测试输入用例"
+                />
+              </a-form-item>
+            </a-col>
+            <a-col :span="8">
+              <a-form-item
+                :field="`form.judgeCase[${index}].output`"
+                :label="`输出用例-${index}`"
+                :key="index"
+              >
+                <a-input
+                  v-model="judgeCaseItem.output"
+                  placeholder="请输入测试输出用例"
+                />
+              </a-form-item>
+            </a-col>
             <a-button
               @click="handleDelete(index)"
               type="outline"
@@ -98,7 +110,7 @@
               style="width: 128px"
               >删除测试用例
             </a-button>
-          </a-space>
+          </a-row>
         </a-form-item>
         <div>
           <a-button

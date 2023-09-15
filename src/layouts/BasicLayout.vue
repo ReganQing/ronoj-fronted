@@ -7,7 +7,9 @@
       <router-view />
     </a-layout-content>
     <a-layout-footer class="footer">
-      <a href="#" style="text-decoration-line: none; color: #fff"> by Ron </a>
+      <a href="#" style="text-decoration-line: none; color: #fff"
+        >Copyright © 2023 by Ron
+      </a>
     </a-layout-footer>
   </a-layout>
 </template>
