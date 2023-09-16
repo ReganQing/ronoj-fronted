@@ -51,7 +51,7 @@ export default defineComponent({
 
 #userLayout .content {
   padding: 20px;
-  background: url("@/assets/ronoj背景.png") no-repeat center/100%;
+  background: url("@/assets/plane.png") no-repeat center/100%;
 }
 #userLayout .footer {
   background: #2c3e50;
