@@ -12,6 +12,7 @@
         <a-input
           v-model="form.userAccount"
           placeholder="请输入账号"
+          autofocus
           allow-clear
         />
       </a-form-item>
@@ -21,6 +22,7 @@
           placeholder="请输入密码"
           id="firstInputPassword"
           :style="{ autocomplete: 'new-password' }"
+          :rules="[{ required: true, message: '输入密码' }]"
           allow-clear
         />
       </a-form-item>
@@ -28,6 +30,11 @@
         field="checkPassword"
         tooltip="密码不少于8位"
         label="确认密码"
+        :rules="[
+          { required: true, message: '请确认密码' },
+          { validator: validatePassCheck, required: true },
+        ]"
+        :validate-trigger="'input'"
       >
         <a-input-password
           v-model="form.checkPassword"
@@ -73,17 +80,13 @@ const form = reactive({
   userAccount: "",
   userPassword: "",
 } as UserRegisterRequest);
+
 /**
  * 提交表单
  * @param data
  */
 const router = useRouter();
 const handleSubmit = async () => {
-  // 检查两次密码是否一致
-  // if (form.userPassword !== secondInputPassword.value) {
-  //   message.error("两次输入的密码不一致");
-  //   return;
-  // }
   const res = await UserControllerService.userRegisterUsingPost(form);
   // 注册成功，跳转到登录页
   if (res.code === 0) {
@@ -96,20 +99,17 @@ const handleSubmit = async () => {
   }
 };
 
-// 新增一个ref来获取第二次输入的密码
-// const secondInputPassword = ref("");
-//
-// function checkPassword() {
-//   let cueElement =
-//     document?.getElementById("cue") ?? document.createElement("span");
-//   if (form.userPassword && secondInputPassword.value) {
-//     if (form.userPassword === secondInputPassword.value) {
-//       cueElement.innerHTML = "<br><font color='green'>两次输入密码一致</font>";
-//     } else {
-//       cueElement.innerHTML = "<br><font color='red'>两次输入密码不一致</font>";
-//     }
-//   }
-// }
+// 表单验证
+const validatePassCheck = (value: string, callback: any) => {
+  console.log(value, callback);
+  if (value === "") {
+    callback("密码不能为空");
+  } else if (value !== form.checkPassword) {
+    callback("两次密码输入不一致");
+  } else {
+    callback();
+  }
+};
 </script>
 
 <style scoped>

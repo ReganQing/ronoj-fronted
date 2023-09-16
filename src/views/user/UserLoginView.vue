@@ -9,7 +9,11 @@
       class="loginForm"
     >
       <a-form-item field="userAccount" label="账号">
-        <a-input v-model="form.userAccount" placeholder="请输入账号" />
+        <a-input
+          v-model="form.userAccount"
+          placeholder="请输入账号"
+          autofocus
+        />
       </a-form-item>
       <a-form-item field="userPassword" tooltip="密码不少于8位" label="密码">
         <a-input-password
