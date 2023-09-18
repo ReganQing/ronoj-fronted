@@ -1,16 +1,16 @@
 import axios from "axios";
-// import { OpenAPI } from "../../generated";
-// import * as process from "process";
+import { OpenAPI } from "../../generated";
+import * as process from "process";
 
 // 携带凭证
-axios.defaults.withCredentials = true;
-// OpenAPI.WITH_CREDENTIALS = true;
-// const baseUrl =
-//   process.env.NODE_ENV === "development"
-//     ? "http://localhost:8080"
-//     : "http://ronoj.cn";
-// OpenAPI.BASE = baseUrl;
-// console.log("当前环境：", process.env.NODE_ENV, "请求地址", baseUrl);
+// axios.defaults.withCredentials = true;
+OpenAPI.WITH_CREDENTIALS = true;
+const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080"
+    : "http://120.27.192.50:80";
+OpenAPI.BASE = baseUrl;
+console.log("当前环境：", process.env.NODE_ENV, "请求地址", baseUrl);
 
 // 添加请求拦截器
 axios.interceptors.request.use(
